@@ -2,7 +2,6 @@ import { Simulator } from './simulator.js';
 
 let simulator = new Simulator;
 
-
 // setup our on-screen buttons
 
 document.getElementById ("displaySim").addEventListener ("click", function(){

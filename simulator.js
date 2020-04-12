@@ -9,21 +9,20 @@ export class Simulator {
     }
 
     get getSimulationOutput(){
-        document.getElementById("simulationOutput").innerHTML = simulator.simState.employee1.emotionalStability;
+        document.getElementById("simulationOutput").innerHTML = this.simState.employee1.emotionalStability;
     }
 
-    get exportSimAsJSON(buttonRef){
-            var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(simState));
+    exportSimAsJSON(buttonRef){
+            var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.simState));
             buttonRef.setAttribute("href", "data:"+data);
             buttonRef.setAttribute("download", "data.json");
     }
 
-    get importSimAsJSON(event){
+    importSimAsJSON(event){
         var reader = new FileReader();
 
         reader.onload = function(event) {
-            simState = JSON.parse(event.target.result);
-            alert(simState.employee1.emotionalStability);
+            this.simState = JSON.parse(event.target.result);
         }
 
         reader.readAsText(event.target.files[0]);
