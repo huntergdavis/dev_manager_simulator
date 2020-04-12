@@ -9,4 +9,6 @@ function runSimulation(){
         document.getElementById("simulationOutput").innerHTML = getSimulationOutput();
 }
 
-document.getElementById ("simulationOutput").addEventListener ("click", runSimulation(), false);
+document.getElementById ("runSim").addEventListener ("click", function(){
+        runSimulation()
+}, false);
