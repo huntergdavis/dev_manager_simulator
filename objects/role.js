@@ -4,13 +4,6 @@ export class Role {
   level = 0;
   salaryCap = 500000;
 
-  constructor(title,numberOfLevels, level, salaryCap) {    
-    this.title = title;
-    this.numberOfLevels = numberOfLevels;
-    this.level = level;
-    this.salaryCap = salaryCap;
-  }
-
   constructor(title) {
     this.title = title;
     this.numberOfLevels = 10;
@@ -20,6 +13,6 @@ export class Role {
 
   // Method
   getFullTitle() {
-    return this.title + this.level;
+    return this.title + " " + this.level;
   }
 }

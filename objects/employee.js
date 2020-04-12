@@ -1,27 +1,6 @@
-import { Role } from "./role";
+import { Role } from "./role.js";
 
-<script type="module">
-  import { Role } from './role.js';
-</script>
-
-
-class Employee {
-  name = "";
-  role = new Role("");
-  level = 0;
-  emotionalStability = 0;
-  confidence = 0;
-  imposterSyndrome = 10;
-
-  constructor(name, role, level, emotionalStability,confidence,imposterSyndrome) {    
-    this.name = name;
-    this.role = role;
-    this.level = level;
-    this.emotionalStability = emotionalStability;
-    this.confidence = confidence;
-    this.imposterSyndrome = imposterSyndrome;
-  }
-
+export class Employee {
   constructor(name, roleName) {
       this.name = name;
       this.role =new Role(roleName);
@@ -30,4 +9,9 @@ class Employee {
       this.confidence = 0;
       this.imposterSyndrome = 10;
   }
+
+  get getEmotionalStability() {
+      return "Emotional Stability Level: " + this.emotionalStability;
+  }
+
 }
