@@ -1,0 +1,4 @@
+tasks:
+  - init: echo "start me up"
+  - command: python3 -m http.server 8080
+    name: Static Server
