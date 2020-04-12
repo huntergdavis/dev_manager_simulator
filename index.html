@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
+     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 
     <p id="simulationOutput">Click Button Below For Simulation Output</p>
-    <button id="runSim">Run Simulation</button>
+    <p><button id="displaySim">Show Simulation Output</button><p>
+    <p><a href id="exportJSON">Download Simulation as JSON</a></p>
 
-    <script type="module" src="./simulator.js"></script>
+
+    <p>Upload JSON Simulation </p>
+    <p><input id="importJSON" class='file-upload-button' type="file" /></p>
+
+    <script type="module" src="./main.js"></script>
 </body>

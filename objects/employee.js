@@ -9,9 +9,4 @@ export class Employee {
       this.confidence = 0;
       this.imposterSyndrome = 10;
   }
-
-  get getEmotionalStability() {
-      return "Emotional Stability Level: " + this.emotionalStability;
-  }
-
 }
