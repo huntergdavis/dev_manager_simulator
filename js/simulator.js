@@ -4,11 +4,11 @@ import { Naming } from './utils/naming.js'
 // these are the functions that work on the simulation state
 export class Simulator {
     static simState;
-    static simVersion=1;
+    static simVersion=1; /* We use this to determine if we can parse the JSON */
 
     constructor() {
         // data states only, safe for JSON
-        Simulator.simState = new SimulationState(Naming.generatePlayerName,"Software Engineer", simVersion);
+        Simulator.simState = new SimulationState(Naming.generatePlayerName,"Software Engineer", Simulator.simVersion);
     }
 
     get getSimulationOutput(){
@@ -27,9 +27,9 @@ export class Simulator {
 
         reader.onload = function(event) {
 
-            stateParsed = JSON.parse(event.target.result);
-            if(stateParsed.simVersion == simVersion) {
-                Simulator.simState = stateParsed;
+            this.stateParsed = JSON.parse(event.target.result);
+            if(this.stateParsed.simVersion == Simulator.simVersion) {
+                Simulator.simState = this.stateParsed;
                 console.log(Simulator.simState);
             }else {
                 console.log("Sim Version MisMatch");
