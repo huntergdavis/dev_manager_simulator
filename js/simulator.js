@@ -4,9 +4,11 @@ import { Naming } from './utils/naming.js'
 // these are the functions that work on the simulation state
 export class Simulator {
     static simState;
+    static simVersion=1;
+
     constructor() {
         // data states only, safe for JSON
-        Simulator.simState = new SimulationState(Naming.generatePlayerName,"Software Engineer");
+        Simulator.simState = new SimulationState(Naming.generatePlayerName,"Software Engineer", simVersion);
     }
 
     get getSimulationOutput(){
@@ -24,8 +26,15 @@ export class Simulator {
         var reader = new FileReader();
 
         reader.onload = function(event) {
-            Simulator.simState = JSON.parse(event.target.result);
-            console.log(Simulator.simState);
+
+            stateParsed = JSON.parse(event.target.result);
+            if(stateParsed.simVersion == simVersion) {
+                Simulator.simState = stateParsed;
+                console.log(Simulator.simState);
+            }else {
+                console.log("Sim Version MisMatch");
+            }
+        
         }
 
         reader.readAsText(event.target.files[0]);
