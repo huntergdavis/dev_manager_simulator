@@ -1,0 +1,26 @@
+export class Terrain {
+
+terrain = ["plains",
+         "savannah",
+         "mountains",
+         "city",
+         "countryside",
+         "township",
+         "high court",
+         "sky kingdom",
+         "far east",
+         "midwest",
+         "pacific",
+         "atlantic",
+         "ocean",
+         "sea",
+         "coast",
+         "swamp",
+         "sound",
+         "realms of outer space",
+         "ninth dimension",
+         "realms of inner space",
+         "realm of Britannia",
+         "realm of Xanadu",
+         "realm Valhalla"]
+}
