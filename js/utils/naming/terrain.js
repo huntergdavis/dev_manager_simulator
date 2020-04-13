@@ -1,6 +1,6 @@
 export class Terrain {
 
-terrain = ["plains",
+static terrain = ["plains",
          "savannah",
          "mountains",
          "city",

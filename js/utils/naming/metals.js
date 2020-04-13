@@ -1,6 +1,6 @@
 export class Metals {
 
-metals = [
+static metals = [
          "tin",
          "green",
          "iron",

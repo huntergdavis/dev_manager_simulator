@@ -1,6 +1,6 @@
 export class Names {
 
-prefixes = [
+static prefixes = [
          "Sir",
          "Madame",
          "Senior",
@@ -11,14 +11,14 @@ prefixes = [
          "Custodian",
          "Principal"
       ];
-vowels = [
+static vowels = [
          "a",
          "e",
          "i",
          "o",
          "u"
       ];
-consonents = [
+static consonents = [
          "q",
          "w",
          "r",
@@ -41,7 +41,7 @@ consonents = [
          "n",
          "m"
       ];
-suffixes = [
+static suffixes = [
          "The first",
          "The second",
          "The third",
@@ -53,7 +53,7 @@ suffixes = [
          "The ninth"
       ];
 
-titlePrefixes = [
+static titlePrefixes = [
     "of the"
 ];
 

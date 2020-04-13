@@ -1,59 +1,60 @@
-import {Strings} from './strings.js'
-import {Names} from '../objects/naming/names.js'
-import {Metals} from '../objects/naming/metals.js'
-import {Terrain} from '../objects/naming/terrain.js'
+import {Names} from './naming/names.js'
+import {Metals} from './naming/metals.js'
+import {Terrain} from './naming/terrain.js'
 
 export class Naming {
 
-    generatePlayerName() {
-        return generatePlayerNameFromSeed("");
+    static get generatePlayerName() {
+        return this.generatePlayerNameFromSeed("");
     };
 
-    generatePlayerNameFromSeed(baseSeed) {
-        return prefix() + 
-                generateFirstNaame(baseSeed) +
-                generateLastNaame() +
-                suffix() +
-                suffixTitleModifier() +
-                metal() +
-                landType();
+    static generatePlayerNameFromSeed(baseSeed) {
+        return this.prefix() + " " +
+                this.generateFirstNaame(baseSeed) + " " +
+                this.generateLastNaame() + ", " +
+                this.suffix() + " " +
+                this.suffixTitleModifier() + " " +
+                this.metal() + " " +
+                this.landType();
     };
 
-    generateFirstNaame(baseSeed) {
-        return capitolizeFirstLetter(consonent() + vowel() + vowel() + baseSeed + consonent() + vowel() + consonent());
+    static capitolizeFirstLetter(stringToCap) {
+        return   stringToCap.charAt(0).toUpperCase() + stringToCap.slice(1)
+    }
+
+    static generateFirstNaame(baseSeed) {
+        return this.capitolizeFirstLetter(this.consonent() + this.vowel() + this.vowel() + baseSeed + this.consonent() + this.vowel() + this.consonent());
     };
     
-    generateLastNaame() {
-        return capitolizeFirstLetter(vowel() + consonent() + vowel() + consonent() + vowel() + vowel() + consonent());
+    static generateLastNaame() {
+        return this.capitolizeFirstLetter(this.vowel() + this.consonent() + this.vowel() + this.consonent() + this.vowel() + this.vowel() + this.consonent());
     };
 
-
-    consonent() {
-        return Strings.getRandomStringFromArray(Names.consonent);
+    static consonent() {
+        return Names.consonents[Math.floor(Math.random()*Names.consonents.length)];
     };
 
-    vowel() {
-        return Strings.getRandomStringFromArray(Names.vowel);
+    static vowel() {
+         return Names.vowels[Math.floor(Math.random()*Names.vowels.length)];
     };
 
-    prefix() {
-        return Strings.getRandomStringFromArray(Names.prefix);
+    static prefix() {
+         return Names.prefixes[Math.floor(Math.random()*Names.prefixes.length)];
     };
 
-    suffixTitleModifier() {
-
-        return Strings.getRandomStringFromArray(Names.suffixTitleModifier);
+    static suffixTitleModifier() {
+        return Names.titlePrefixes[Math.floor(Math.random()*Names.titlePrefixes.length)];
     };
 
-    suffix() {
-        return Strings.getRandomStringFromArray(Names.suffix);
+    static suffix() {
+         return Names.suffixes[Math.floor(Math.random()*Names.suffixes.length)];
     };
 
-    metal() {
-        return Strings.getRandomStringFromArray(Metals.metal);
+    static metal() {
+         return Metals.metals[Math.floor(Math.random()*Metals.metals.length)];
     };
 
-    landType() {
-        return Strings.getRandomStringFromArray(Terrain.Terrain);
+    static landType() {
+         return Terrain.terrain[Math.floor(Math.random()*Terrain.terrain.length)];
     };
 }
